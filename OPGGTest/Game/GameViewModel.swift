@@ -72,7 +72,25 @@ public final class GameViewModel: ConfigurableTableViewItemIdentifier {
                 return
             }
             
-            let image = UIImage(contentsOfFile: url.relativePath)
+            guard let toURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(url.lastPathComponent).appendingPathExtension(url.pathExtension) else {
+                return
+            }
+            
+            let image: UIImage
+            
+            if FileManager.default.fileExists(atPath: toURL.relativePath) {
+                image = UIImage(contentsOfFile: toURL.relativePath)!
+            } else {
+                do {
+                    try FileManager.default.copyItem(atPath: url.relativePath, toPath: toURL.relativePath)
+                } catch {
+                    logger.error("\(error)")
+                    
+                    return
+                }
+                
+                image = UIImage(contentsOfFile: toURL.relativePath)!
+            }
             
             self.championImage.accept(image)
         }
@@ -83,8 +101,28 @@ public final class GameViewModel: ConfigurableTableViewItemIdentifier {
                     return
                 }
                 
+                guard let toURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(url.lastPathComponent).appendingPathExtension(url.pathExtension) else {
+                    return
+                }
+                
+                let image: UIImage
+                
+                if FileManager.default.fileExists(atPath: toURL.relativePath) {
+                    image = UIImage(contentsOfFile: toURL.relativePath)!
+                } else {
+                    do {
+                        try FileManager.default.copyItem(atPath: url.relativePath, toPath: toURL.relativePath)
+                    } catch {
+                        logger.error("\(error)")
+                        
+                        return
+                    }
+                    
+                    image = UIImage(contentsOfFile: toURL.relativePath)!
+                }
+                
                 var itemsImage = self.itemsImage.value
-                itemsImage[offset] = UIImage(contentsOfFile: url.relativePath)
+                itemsImage[offset] = image
                 
                 self.itemsImage.accept(itemsImage)
             }
@@ -95,7 +133,27 @@ public final class GameViewModel: ConfigurableTableViewItemIdentifier {
                 return
             }
             
-            self.trinketItemImage.accept(UIImage(contentsOfFile: url.relativePath))
+            guard let toURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(url.lastPathComponent).appendingPathExtension(url.pathExtension) else {
+                return
+            }
+            
+            let image: UIImage
+            
+            if FileManager.default.fileExists(atPath: toURL.relativePath) {
+                image = UIImage(contentsOfFile: toURL.relativePath)!
+            } else {
+                do {
+                    try FileManager.default.copyItem(atPath: url.relativePath, toPath: toURL.relativePath)
+                } catch {
+                    logger.error("\(error)")
+                    
+                    return
+                }
+                
+                image = UIImage(contentsOfFile: toURL.relativePath)!
+            }
+            
+            self.trinketItemImage.accept(image)
         }
         
         spellsImageURL.enumerated().forEach { offset, element in
@@ -104,8 +162,28 @@ public final class GameViewModel: ConfigurableTableViewItemIdentifier {
                     return
                 }
                 
+                guard let toURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(url.lastPathComponent).appendingPathExtension(url.pathExtension) else {
+                    return
+                }
+                
+                let image: UIImage
+                
+                if FileManager.default.fileExists(atPath: toURL.relativePath) {
+                    image = UIImage(contentsOfFile: toURL.relativePath)!
+                } else {
+                    do {
+                        try FileManager.default.copyItem(atPath: url.relativePath, toPath: toURL.relativePath)
+                    } catch {
+                        logger.error("\(error)")
+                        
+                        return
+                    }
+                    
+                    image = UIImage(contentsOfFile: toURL.relativePath)!
+                }
+                
                 var spellsImage = self.spellsImage.value
-                spellsImage[offset] = UIImage(contentsOfFile: url.relativePath)
+                spellsImage[offset] = image
                 
                 self.spellsImage.accept(spellsImage)
             }
@@ -117,8 +195,28 @@ public final class GameViewModel: ConfigurableTableViewItemIdentifier {
                     return
                 }
                 
+                guard let toURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(url.lastPathComponent).appendingPathExtension(url.pathExtension) else {
+                    return
+                }
+                
+                let image: UIImage
+                
+                if FileManager.default.fileExists(atPath: toURL.relativePath) {
+                    image = UIImage(contentsOfFile: toURL.relativePath)!
+                } else {
+                    do {
+                        try FileManager.default.copyItem(atPath: url.relativePath, toPath: toURL.relativePath)
+                    } catch {
+                        logger.error("\(error)")
+                        
+                        return
+                    }
+                    
+                    image = UIImage(contentsOfFile: toURL.relativePath)!
+                }
+                
                 var peakImage = self.peakImage.value
-                peakImage[offset] = UIImage(contentsOfFile: url.relativePath)
+                peakImage[offset] = image
                 
                 self.peakImage.accept(peakImage)
             }

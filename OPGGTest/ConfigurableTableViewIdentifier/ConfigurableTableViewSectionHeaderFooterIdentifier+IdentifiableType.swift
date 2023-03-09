@@ -3,7 +3,7 @@ import RxDataSources
 
 extension ConfigurableTableViewSectionHeaderFooterIdentifier: IdentifiableType {
     
-    public var identity: some Hashable {
+    public var identity: ConfigurableTableViewSectionHeaderFooterIdentifier {
         self
     }
 }
