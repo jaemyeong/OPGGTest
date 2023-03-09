@@ -1,11 +1,15 @@
 #  OPGGTest
 
+[![Swift](https://github.com/jaemyeong/OPGGTest/actions/workflows/swift.yml/badge.svg)](https://github.com/jaemyeong/OPGGTest/actions/workflows/swift.yml)
+
 ## Overview
+
+OP.GG Test 입니다.
 
 ## Requirements
 
-- macOS Ventura 13.2.1
-- Xcode 14.2
+- macOS Ventura 12.6.3
+- Xcode 13.4.1
 
 ## Installation
 

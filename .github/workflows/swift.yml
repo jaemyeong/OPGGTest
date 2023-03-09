@@ -1,0 +1,23 @@
+name: Swift
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - name: Select Xcode
+        run: xcversion select 13.4.1
+      - name: Resolves Swift Package Dependencies
+        run: xcodebuild -resolvePackageDependencies
+      - name: Show destinations
+        run: xcodebuild -scheme OPGGTest -showdestinations
+      - name: Run tests
+        run: xcodebuild test -scheme OPGGTest -destination "platform=iOS Simulator,OS=15.5,name=iPhone 13 Pro"
