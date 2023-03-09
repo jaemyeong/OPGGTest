@@ -168,6 +168,8 @@
 		7BBEEA4E29A5F9C200140C65 /* OPGGTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OPGGTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BBEEA5229A5F9C200140C65 /* OPGGTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPGGTestUITests.swift; sourceTree = "<group>"; };
 		7BBEEA5429A5F9C200140C65 /* OPGGTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPGGTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7BBFD5B529B9D36E00C0B03A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7BBFD5B629B9D3A000C0B03A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7BC3CA4129ADFA85001B2F5D /* GameLargestMultiKillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLargestMultiKillView.swift; sourceTree = "<group>"; };
 		7BC3CA4329ADFE4E001B2F5D /* MatchesSummaryStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesSummaryStatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,6 +320,8 @@
 		7BBEEA2229A5F9C100140C65 = {
 			isa = PBXGroup;
 			children = (
+				7BBFD5B629B9D3A000C0B03A /* LICENSE */,
+				7BBFD5B529B9D36E00C0B03A /* README.md */,
 				7BBEEA2D29A5F9C100140C65 /* OPGGTest */,
 				7BBEEA4729A5F9C200140C65 /* OPGGTestTests */,
 				7BBEEA5129A5F9C200140C65 /* OPGGTestUITests */,
