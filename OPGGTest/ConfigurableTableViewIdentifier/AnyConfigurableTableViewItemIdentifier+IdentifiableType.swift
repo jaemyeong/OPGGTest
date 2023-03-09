@@ -3,7 +3,7 @@ import RxDataSources
 
 extension AnyConfigurableTableViewItemIdentifier: IdentifiableType {
     
-    public var identity: some Hashable {
+    public var identity: AnyConfigurableTableViewItemIdentifier {
         self
     }
 }

@@ -24,7 +24,25 @@ public final class SummonerProfileViewModel: ConfigurableTableViewSectionIdentif
                 return
             }
             
-            let image = UIImage(contentsOfFile: url.relativePath)
+            guard let toURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent(url.lastPathComponent).appendingPathExtension(url.pathExtension) else {
+                return
+            }
+            
+            let image: UIImage
+            
+            if FileManager.default.fileExists(atPath: toURL.relativePath) {
+                image = UIImage(contentsOfFile: toURL.relativePath)!
+            } else {
+                do {
+                    try FileManager.default.copyItem(atPath: url.relativePath, toPath: toURL.relativePath)
+                } catch {
+                    logger.error("\(error)")
+                    
+                    return
+                }
+                
+                image = UIImage(contentsOfFile: toURL.relativePath)!
+            }
             
             self.profileImage.accept(image)
         }
